@@ -13,31 +13,13 @@ import { LoginPage } from "../pages/login/login";
 import firebase from 'firebase';
 
 export interface PageInterface {
-  title: string;
-  name: string;
-  component: any;
-  icon: string;
-  logsOut?: boolean;
-  index?: number;
-  tabName?: string;
-  tabComponent?: any;
+
 }
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
-
-      appPages: PageInterface[] = [
-    { title: 'Feeds', name: 'TabsPage', component: TabsPage, tabComponent: FeedsPage, index: 0, icon: 'md-paper' },
-    { title: 'Upload', name: 'TabsPage', component: TabsPage, tabComponent: UploadPage, index: 1, icon: 'md-cloud-upload' },
-    { title: 'Happiness', name: 'TabsPage', component: TabsPage, tabComponent: HappinessPage, index: 2, icon: 'md-happy' },
-    { title: 'Profile', name: 'TabsPage', component: TabsPage, tabComponent: ProfilePage, index: 3, icon: 'md-contact' }
-    // { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
-    // { title: 'Feedback', name: 'SupportPage', component: SupportPage, icon: 'help' },
-    // { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true }
-  ];
 
    rootPage:any = TabsPage;
  
@@ -75,38 +57,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-  }
-  openPage(page: PageInterface) {
-    let params = {};
-
-    if (page.index) {
-      params = { tabIndex: page.index };
-    }
-
-    if (this.nav.getActiveChildNav() && page.index != undefined) {
-      this.nav.getActiveChildNav().select(page.index);
-
-    } else {
-      this.nav.setRoot(page.name, params).catch((err: any) => {
-        console.log(`Didn't set nav root: ${err}`);
-      });
-    }
-  }
-
-  isActive(page: PageInterface) {
-    let childNav = this.nav.getActiveChildNav();
-
-    if (childNav) {
-      if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
-        return 'primary';
-      }
-      return;
-    }
-
-    if (this.nav.getActive() && this.nav.getActive().name === page.name) {
-      return 'primary';
-    }
-    return;
   }
 
     signOut() {

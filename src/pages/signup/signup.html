@@ -3,20 +3,57 @@
     <ion-title>Signup</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content padding class="card-background-page">
+
+  <ion-card>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxBLROD2zJ4Hn0FyQQyFl1tB0AO_8sR3cUuLG145el6RpLnD-lw" />
+  </ion-card>
+
   <ion-list>
+
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
     <ion-item>
       <ion-label floating>E-Mail</ion-label>
       <ion-input type="email" [(ngModel)]="signupData.email"></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label floating>Password</ion-label>
       <ion-input type="password" [(ngModel)]="signupData.password"></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label floating>Re-Enter Password</ion-label>
       <ion-input type="password" [(ngModel)]="signupData.passwordRetyped"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label floating>Mobile</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+
+    <ion-list radio-group [(ngModel)]="Gender">
+      <ion-item>
+        <ion-label>Male</ion-label>
+        <ion-radio value="male" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Female</ion-label>
+        <ion-radio value="female"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+<br>
   </ion-list>
   <button full ion-button (click)="signup()" [disabled]="!signupData.email || !signupData.password || !signupData.passwordRetyped">Signup</button>
 </ion-content>

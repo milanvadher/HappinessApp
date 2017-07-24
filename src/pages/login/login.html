@@ -3,8 +3,14 @@
     <ion-title>Login</ion-title>
   </ion-navbar>
 </ion-header>
- 
-<ion-content padding>
+
+
+<ion-content class="card-background-page" padding>
+
+  <ion-card>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxBLROD2zJ4Hn0FyQQyFl1tB0AO_8sR3cUuLG145el6RpLnD-lw" />
+  </ion-card>
+
   <ion-list>
     <ion-item>
       <ion-label floating>E-Mail</ion-label>
@@ -15,14 +21,35 @@
       <ion-input type="password" [(ngModel)]="loginData.password"></ion-input>
     </ion-item>
   </ion-list>
-  <button full ion-button (click)="login()" [disabled]="!loginData.email || !loginData.password">Login</button>
-  <a href="#" (click)="signup()">Signup for an Account</a><br><br>
-  <button ion-button (click)="fbLogin()">
-    <ion-icon name="logo-facebook"></ion-icon>
-    Login with Facebook
-  </button>
-  <button ion-button block color="danger" (click)="gpLogin()" *ngIf="!userProfile">
-  <ion-icon name="logo-googleplus"></ion-icon>
-  Login with Google
-</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button full ion-button (click)="login()" [disabled]="!loginData.email || !loginData.password">Login</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block (click)="signup()">
+          Sign Up
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h5> Login with :</h5>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block color="facebook" (click)="fbLogin()">
+          <ion-icon name="logo-facebook" id="logo"></ion-icon>
+            Facebook
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block color="danger" (click)="gpLogin()">
+           <ion-icon name="logo-googleplus" id="logo"></ion-icon>
+              Google
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
