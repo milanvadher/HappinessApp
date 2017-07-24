@@ -4,6 +4,8 @@ import { SignupPage } from "../signup/signup";
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Facebook } from "@ionic-native/facebook";
 import firebase from 'firebase';
+import { GooglePlus } from '@ionic-native/google-plus';
+import { FeedsPage } from "../feeds/feeds";
 
 @Component({
   selector: 'page-login',
@@ -22,8 +24,24 @@ export class LoginPage {
     public navParams: NavParams,
     private afAuth: AngularFireAuth,
     private toastCtrl: ToastController,
-    public facebook: Facebook
+    public facebook: Facebook,
+    public googlePlus: GooglePlus
   ) {
+  }
+
+  gpLogin() {
+     this.googlePlus.login({
+    'webClientId': '414822187127-9n5ik0q094ji8m3b1urau96njtrjbsa3.apps.googleusercontent.com',
+    'offline': true
+  }).then( res => {
+    firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+      .then( success => {
+        alert("Sucess");
+      })
+      .catch( error => {
+        alert("Error");
+      });
+    })
   }
 
   login() {

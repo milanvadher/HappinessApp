@@ -18,6 +18,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { CardPopoverPage } from "../pages/card-popover/card-popover";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireModule } from "angularfire2";
+import { GooglePlus } from '@ionic-native/google-plus';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -72,6 +73,7 @@ var config = {
     SplashScreen,
     Camera,
     Facebook,
+    GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ImageProvider
   ]

@@ -23,6 +23,7 @@
         "@ionic-native/camera": "^4.1.0",
         "@ionic-native/core": "3.12.1",
         "@ionic-native/facebook": "^4.1.0",
+        "@ionic-native/google-plus": "^4.1.0",
         "@ionic-native/splash-screen": "3.12.1",
         "@ionic-native/status-bar": "3.12.1",
         "@ionic/storage": "2.0.1",
@@ -48,7 +49,8 @@
         "ionicons": "3.0.0",
         "rxjs": "5.4.0",
         "sw-toolbox": "3.6.0",
-        "zone.js": "0.8.12"
+        "zone.js": "0.8.12",
+        "cordova-plugin-googleplus": "~5.1.1"
     },
     "devDependencies": {
         "@ionic/app-scripts": "2.0.2",
@@ -79,6 +81,9 @@
                 "ANDROID_SCHEME": " ",
                 "ANDROID_HOST": " ",
                 "ANDROID_PATHPREFIX": "/"
+            },
+            "cordova-plugin-googleplus": {
+                "REVERSED_CLIENT_ID": "com.googleusercontent.apps.414822187127-9n5ik0q094ji8m3b1urau96njtrjbsa3"
             }
         },
         "platforms": [

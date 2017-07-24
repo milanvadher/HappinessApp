@@ -100,6 +100,9 @@
         <variable name="APP_ID" value="1995297034031766" />
         <variable name="APP_NAME" value="HappinessApp" />
     </plugin>
+    <plugin name="cordova-plugin-googleplus" spec="~5.1.1">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.414822187127-9n5ik0q094ji8m3b1urau96njtrjbsa3" />
+    </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.2.2" />
