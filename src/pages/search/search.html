@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Cancel</button>
+    </ion-buttons>
+
+    <ion-title>
+      Search
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="done()" strong>Done</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+
+</ion-content>

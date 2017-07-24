@@ -1,0 +1,46 @@
+#notification {
+  padding-inline-end: 10px;
+}
+
+.ion-col {
+	text-align: left;
+}
+
+#white {
+  background-color: #ffffff;
+}
+
+#notifications-badge {
+            background-color: red;
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            border-radius: 100%;
+        }
+
+          #notification-button {            
+            position: relative;
+            width: 42px;
+            top:1px;
+            right: 1px;
+            overflow: visible!important;
+        }
+
+  
+  // #profilepic {
+  //   position: absolute;
+  //   top: 5px;
+  //   // bottom: 10px;
+  // }
+
+  #username {
+    position: absolute;
+    left: 70px;
+    top: 7px;
+  }
+
+  #date {
+    position: absolute;
+    left: 70px;
+    bottom: 10px;
+  }

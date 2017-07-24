@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Upload</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<button ion-button full (click)="takePicture()">Take Picture</button>
+<button ion-button full (click)="selectPhoto()">Select from Gallery</button>
+<img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+ <!-- <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>  -->
+<button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload to Firebase!</button>
+</ion-content>
