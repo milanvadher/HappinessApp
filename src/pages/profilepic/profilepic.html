@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Set Profile Picture</ion-title>
+  <ion-buttons end>
+      <button ion-button (click)="skip()" strong>Skip</button>
+    </ion-buttons>
+  </ion-navbar>
+  
+
+</ion-header>
+
+
+<ion-content padding>
+  <div padding-top text-center>
+    <img [src]="captureDataUrl" ng-if="captureDataUrl" id="profileic">
+  </div>
+  <br><br>
+  <button ion-button full (click)="takePicture()">Open Camera</button>
+  <button ion-button full (click)="selectPhoto()">Select from Gallery</button>
+  <button ion-button (click)="upload()" *ngIf="captureDataUrl">Save picture</button>
+</ion-content>

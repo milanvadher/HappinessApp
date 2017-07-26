@@ -6,7 +6,7 @@
     <ion-title>Feeds</ion-title>
     <ion-buttons end id="notification">
       <button ion-button icon-only [navPush]="notificationPage">
-        <ion-icon name="notifications">
+        <ion-icon name="md-notifications">
           <ion-badge id="notifications-badge" color="danger">5</ion-badge>
         </ion-icon>       
       </button>
@@ -41,9 +41,9 @@
               </ion-avatar>
               <h2 id="username">User Name</h2>
               <p id="date">18 July 2017</p>
-              <ion-buttons end>
+              <ion-buttons end >
                 <button id="white" (click)="presentPopover($event)">
-                  <ion-icon name="md-more"></ion-icon>
+                  <ion-icon name="md-more" id="more"></ion-icon>
                 </button>      
               </ion-buttons>
        
@@ -86,7 +86,7 @@
               <p id="date">19 July 2017</p>
               <ion-buttons end>
                 <button id="white" (click)="presentPopover($event)">
-                  <ion-icon name="md-more"></ion-icon>
+                  <ion-icon name="md-more" id="more"></ion-icon>
                 </button>      
               </ion-buttons>
       </ion-item>

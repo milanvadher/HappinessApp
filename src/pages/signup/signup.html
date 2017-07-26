@@ -13,12 +13,12 @@
 
     <ion-item>
       <ion-label floating>First Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="signupData.firstname"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Last Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="signupData.lastname"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -38,22 +38,31 @@
 
     <ion-item>
       <ion-label floating>Mobile</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input type="number" [(ngModel)]="signupData.mobile"></ion-input>
     </ion-item>
 
+    
 
-    <ion-list radio-group [(ngModel)]="Gender">
-      <ion-item>
-        <ion-label>Male</ion-label>
-        <ion-radio value="male" checked></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>Female</ion-label>
-        <ion-radio value="female"></ion-radio>
-      </ion-item>
-    </ion-list>
+<ion-list radio-group [(ngModel)]="signupData.gender">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Male</ion-label>
+            <ion-radio value="male"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>Female</ion-label>
+            <ion-radio value="female"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-list>
 
-<br>
   </ion-list>
+
   <button full ion-button (click)="signup()" [disabled]="!signupData.email || !signupData.password || !signupData.passwordRetyped">Signup</button>
 </ion-content>

@@ -1,0 +1,32 @@
+page-profilepic {
+
+    // #skip {
+    //     color: white;
+    //     font-size: 20px;
+    // }
+
+img {
+  border-radius: 50%;
+  background: url("http://www.gravatar.com/avatar?d=mm&s=140") 50% 50% no-repeat;
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#profileic {
+  border: 5px solid #00c6cc;
+  padding: 3px;
+  border-radius: 110%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0 auto;
+  width: 128px;
+  height: 128px;
+  overflow: hidden;
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+}

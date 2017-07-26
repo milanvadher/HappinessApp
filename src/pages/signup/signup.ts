@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
+import { ProfilepicPage } from "../profilepic/profilepic";
 
 @Component({
   selector: 'page-signup',
@@ -12,7 +13,11 @@ export class SignupPage {
   signupData = {
     email: '',
     password: '',
-    passwordRetyped: ''
+    passwordRetyped: '',
+    firstname: '',
+    lastname: '',
+    mobile: '',
+    gender: ''
   };
   error = {
     code: '',
@@ -41,7 +46,15 @@ export class SignupPage {
       .then(newUser => {
         // Could do something with the Auth-Response
         firebase.database().ref('/userProfile').child(newUser.uid)
-        .set({email: this.signupData.email});
+        .set({
+          email: this.signupData.email, 
+          firstname: this.signupData.firstname,
+          lastname: this.signupData.lastname,
+          mobile: this.signupData.mobile,
+          gender: this.signupData.gender
+        }).then(()=>{
+          this.navCtrl.setRoot(ProfilepicPage);
+        })
       })
       .catch(err => {
         let alert = this.alertCtrl.create({

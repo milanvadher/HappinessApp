@@ -7,7 +7,19 @@
 
 <ion-content class="card-background-page" padding>
 
-  <ion-card>
+ 
+   <ion-item>
+    <ion-label stacked>Phone Number</ion-label>
+    <ion-input type="number" [(ngModel)]="phoneNumber"></ion-input>
+  </ion-item>
+  
+ <div id="recaptcha-container"></div>
+
+  <button ion-button id="sign-in-button" (click)="signIn(phoneNumber)">
+    Sign In
+  </button>
+
+  <!-- <ion-card>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxBLROD2zJ4Hn0FyQQyFl1tB0AO_8sR3cUuLG145el6RpLnD-lw" />
   </ion-card>
 
@@ -51,5 +63,5 @@
         </button>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>

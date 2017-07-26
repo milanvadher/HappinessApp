@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { Camera } from '@ionic-native/camera';
 import { HttpModule } from '@angular/http';
 import { Facebook } from "@ionic-native/facebook";
+import { FacebookService } from "ngx-facebook";
 
 import { FeedsPage } from "../pages/feeds/feeds";
 import { UploadPage } from "../pages/upload/upload";
@@ -19,10 +20,13 @@ import { CardPopoverPage } from "../pages/card-popover/card-popover";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireModule } from "angularfire2";
 import { GooglePlus } from '@ionic-native/google-plus';
+import { AboutPage } from "../pages/about/about";
+import { ProfilepicPage } from "../pages/profilepic/profilepic";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ImageProvider } from '../providers/image/image';
+import { ProfileProvider } from '../providers/profile/profile';
 
 var config = {
     apiKey: "AIzaSyAC5irF8UKkq1MCbp-FEfV3RJjuexTaETM",
@@ -45,7 +49,9 @@ var config = {
     SearchPage,
     CardPopoverPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    AboutPage,
+    ProfilepicPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,9 @@ var config = {
     SearchPage,
     CardPopoverPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    AboutPage,
+    ProfilepicPage
   ],
   providers: [
     StatusBar,
@@ -74,8 +82,10 @@ var config = {
     Camera,
     Facebook,
     GooglePlus,
+    FacebookService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ImageProvider
+    ImageProvider,
+    ProfileProvider
   ]
 })
 export class AppModule {}

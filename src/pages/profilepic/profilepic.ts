@@ -1,31 +1,30 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Camera , CameraOptions} from '@ionic-native/camera';
-import firebase from 'firebase';
+import { TabsPage } from "../tabs/tabs";
 
 @Component({
-  selector: 'page-upload',
-  templateUrl: 'upload.html',
+  selector: 'page-profilepic',
+  templateUrl: 'profilepic.html',
 })
-export class UploadPage {
+export class ProfilepicPage {
 
-  captureDataUrl: string;
+   captureDataUrl: string;
   public myPhoto: any;
   public myPhotosRef: any;
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navParams: NavParams,
     private camera: Camera
   ) {
   }
 
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UploadPage');
+    console.log('ionViewDidLoad ProfilepicPage');
   }
 
- takePicture() {
+   takePicture() {
 
   const cameraOptions: CameraOptions = {
       quality: 50,
@@ -53,7 +52,7 @@ export class UploadPage {
 
     firebase.database().ref('userProfile/')
     .child(firebase.auth().currentUser.uid)
-    .push({profile: user.downloadURL});
+    .push({profilePic : user.downloadURL});
 
   });
  }
@@ -69,5 +68,9 @@ export class UploadPage {
     this.captureDataUrl = 'data:image/jpeg;base64,' + imageData;
   });
  }
-    
+
+ skip() {
+   this.navCtrl.setRoot(TabsPage);
+ }
+
 }
