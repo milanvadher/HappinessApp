@@ -15,7 +15,7 @@ export class ProfileProvider {
     firebase.auth().onAuthStateChanged( user => {
     if (user){
       this.currentUser = user;
-      this.userProfile = firebase.database().ref(`/userProfile/${user.uid}`);
+      this.userProfile = firebase.database().ref(`/userProfile/${user.uid}/profileData`);
     }
   });
 

@@ -11,5 +11,19 @@
 
 
 <ion-content padding>
-
+<ion-card
+class="publicStory"
+text-wrap
+*ngFor="let publicStory of storyModerator | async"
+>
+  <img [src]="publicStory.image"/>
+  <ion-card-content>
+    <ion-card-title>
+{{ publicStory.title }}
+      </ion-card-title>
+    <p>
+      {{ publicStory.summary }}
+    </p>
+  </ion-card-content>
+</ion-card>
 </ion-content>

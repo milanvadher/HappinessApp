@@ -27,6 +27,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ImageProvider } from '../providers/image/image';
 import { ProfileProvider } from '../providers/profile/profile';
+import { DatabaseProvider } from '../providers/database/database';
 
 var config = {
     apiKey: "AIzaSyAC5irF8UKkq1MCbp-FEfV3RJjuexTaETM",
@@ -85,7 +86,8 @@ var config = {
     FacebookService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ImageProvider,
-    ProfileProvider
+    ProfileProvider,
+    DatabaseProvider
   ]
 })
 export class AppModule {}

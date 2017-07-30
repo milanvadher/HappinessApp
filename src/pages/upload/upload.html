@@ -11,8 +11,19 @@
 
 
 <ion-content padding>
-<button ion-button full (click)="takePicture()">Take Picture</button>
+<button ion-button full (click)="takePicture()">
+   <ion-icon ios="ios-camera" md="md-camera" id="camera"></ion-icon>
+  Take Picture</button>
 <button ion-button full (click)="selectPhoto()">Select from Gallery</button>
 <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+
+<ion-item>
+  <ion-label stacked>Summary:</ion-label>
+  <ion-textarea
+  raw= "4"
+  [(ngModel)]="displaySummary">
+  </ion-textarea>
+</ion-item>
+
 <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload to Firebase!</button>
 </ion-content>

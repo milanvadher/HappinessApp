@@ -22,7 +22,7 @@
 </ion-header>
 
 
-<ion-content id="white">
+<!-- <ion-content id="white"> -->
 <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher> -->
@@ -31,8 +31,8 @@
   <!-- This is for All Feeds -->
 
 
-  <ion-list>
-    <ion-card>
+  <!-- <ion-list>
+    <ion-card class="userFeeds">
       
       <ion-item>
         
@@ -49,7 +49,7 @@
        
       </ion-item>
          
-      <img src="http://brucerosenstein.com/wp-content/uploads/2013/07/Summer-happiness-photo.jpg">
+      
 
       <ion-card-content>
         <p>I Spread Happiness ... </p>
@@ -118,4 +118,72 @@
 
     </ion-card>
   </ion-list>
+</ion-content> -->
+
+<ion-content>
+
+<ion-list>
+
+<ion-card 
+class="userFeeds" 
+text-wrap 
+*ngFor = "let userFeed of userFeeds | async">
+
+<ion-item>
+
+<!-- profile pic -->
+
+<ion-item>
+        
+              <ion-avatar id="profilepic" item-start>
+                <img src="https://s3-eu-west-1.amazonaws.com/spiked-online.com/images/reviewofbooks/may2015/smiley_face.jpg">
+              </ion-avatar>
+              <h2 id="username">{{ userFeed.firstname }} {{ userFeed.lastname }}</h2>
+              <p id="date">18 July 2017</p>
+              <ion-buttons end >
+                <button id="white" (click)="presentPopover($event)">
+                  <ion-icon name="md-more" id="more"></ion-icon>
+                </button>      
+              </ion-buttons>
+       
+      </ion-item>
+<!-- username -->
+
+<div ng-if="userFeed.feed">
+  <img [src]="userFeed.feed">
+</div>
+<h2>{{ userFeed.info }}</h2>
+
+</ion-item>
+
+
+      <ion-card-content>
+        <p>{{ userFeed.summary }} </p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>122 Likes</div>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            2h ago
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+</ion-card>
+
+</ion-list>
+
+
 </ion-content>

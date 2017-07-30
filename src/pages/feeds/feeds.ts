@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 import { NotificationsPage } from "../notifications/notifications";
 import { SearchPage } from "../search/search";
 import { AlertController, PopoverController, Popover , App, FabContainer, ItemSliding, List, ModalController, ToastController, LoadingController, Refresher } from 'ionic-angular';
 import { CardPopoverPage } from "../card-popover/card-popover";
+import { DatabaseProvider } from "../../providers/database/database";
 
 @Component({
   selector: 'page-feeds',
   templateUrl: 'feeds.html',
 })
 export class FeedsPage {
+  userFeeds: any;
+
+
 
   notificationPage = NotificationsPage;
   searchPage = SearchPage;
@@ -23,12 +27,27 @@ export class FeedsPage {
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
     // public confData: ConferenceData,
-    public popoverCtrl: PopoverController
+    public popoverCtrl: PopoverController,
+    public platform: Platform,
+    private DB: DatabaseProvider
   ) {
   }
 
+
+
   ionViewDidLoad() {
+
+    this.platform.ready()
+    .then(()=>{
+      this.loadFeeds();
+    });
+
     console.log('ionViewDidLoad FeedsPage');
+  }
+
+  loadFeeds() {
+    this.userFeeds = this.DB.renderFeeds();
+    console.log(this.DB.renderFeeds());
   }
 
   presentPopover(event: Event) {

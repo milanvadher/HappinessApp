@@ -47,16 +47,17 @@
         "firebase": "^4.1.3",
         "ionic-angular": "3.5.3",
         "ionic-plugin-keyboard": "^2.2.1",
-        "ngx-facebook": "latest",
         "ionicons": "3.0.0",
+        "ngx-facebook": "latest",
         "rxjs": "5.4.0",
         "sw-toolbox": "3.6.0",
         "zone.js": "0.8.12"
     },
     "devDependencies": {
         "@ionic/app-scripts": "2.0.2",
-        "@ionic/cli-plugin-cordova": "1.4.1",
-        "@ionic/cli-plugin-ionic-angular": "1.3.2",
+        "@ionic/cli-plugin-cordova": "1.5.0",
+        "@ionic/cli-plugin-ionic-angular": "1.4.0",
+        "ionic": "3.6.0",
         "typescript": "2.3.4"
     },
     "description": "fb-auth: An Ionic project",

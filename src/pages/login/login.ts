@@ -16,7 +16,7 @@ export class LoginPage {
 
   public loading: Loading;
 
-  public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
+  // public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
 
 
   loginData = {
@@ -36,6 +36,13 @@ export class LoginPage {
     // public googlePlus: GooglePlus,
     // public fb: FacebookService
   ) {
+
+    if (window.localStorage.getItem('authentication') == null) {
+      window.localStorage.setItem('authentication', 'false');
+    }
+
+
+
     // firebase.auth().onAuthStateChanged(user => {
     //   if (user) {
     //     this.userProfile = user;
@@ -45,59 +52,59 @@ export class LoginPage {
     // });
   }
 
-  login(){
-     this.afAuth.auth.signInWithEmailAndPassword(this.loginData.email, this.loginData.password)
-    .then(auth => {
-      // Do custom things with auth
-    })
-    .catch(err => {
-      // Handle error
-      let toast = this.toastCtrl.create({
-        message: err.message,
-        duration: 1000
+  login() {
+    this.afAuth.auth.signInWithEmailAndPassword(this.loginData.email, this.loginData.password)
+      .then(auth => {
+        // Do custom things with auth
+      })
+      .catch(err => {
+        // Handle error
+        let toast = this.toastCtrl.create({
+          message: err.message,
+          duration: 1000
+        });
+        toast.present();
       });
-      toast.present();
-    });
   }
 
 
-  signIn(phoneNumber: number){
+  // signIn(phoneNumber: number){
 
-    const appVerifier = this.recaptchaVerifier;
-    const phoneNumberString = '+91' + phoneNumber;
+  //   const appVerifier = this.recaptchaVerifier;
+  //   const phoneNumberString = '+91' + phoneNumber;
 
-    firebase.auth().signInWithPhoneNumber(phoneNumberString,appVerifier)
-    .then(confirmationResult =>{
-        let prompt = this.alertCtrl.create({
-            title: 'Enter the code',
-            inputs: [{name: 'confirmationCode', placeholder: 'Confirmation Code'}],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: data => {
-                        alert("Cancel clicked");
-                    }
-                },
-                {
-                    text: 'Send',
-                    handler: data => {
-                        confirmationResult.confirm(data.confirmationCode)
-                        .then(()=>{
-                            this.navCtrl.push(SignupPage);
-                        }).catch((err)=>{
-                            alert("error: "+ JSON.stringify(err));
-                        })
-                    }
-                }
-                 
-            ]
-        })
-          prompt.present();
-    }).catch(err=>{
-        alert("SMS not send Pleasse try again ...");
-    })
+  //   firebase.auth().signInWithPhoneNumber(phoneNumberString,appVerifier)
+  //   .then(confirmationResult =>{
+  //       let prompt = this.alertCtrl.create({
+  //           title: 'Enter the code',
+  //           inputs: [{name: 'confirmationCode', placeholder: 'Confirmation Code'}],
+  //           buttons: [
+  //               {
+  //                   text: 'Cancel',
+  //                   handler: data => {
+  //                       alert("Cancel clicked");
+  //                   }
+  //               },
+  //               {
+  //                   text: 'Send',
+  //                   handler: data => {
+  //                       confirmationResult.confirm(data.confirmationCode)
+  //                       .then(()=>{
+  //                           this.navCtrl.push(SignupPage);
+  //                       }).catch((err)=>{
+  //                           alert("error: "+ JSON.stringify(err));
+  //                       })
+  //                   }
+  //               }
 
-  }
+  //           ]
+  //       })
+  //         prompt.present();
+  //   }).catch(err=>{
+  //       alert("SMS not send Pleasse try again ...");
+  //   })
+
+  // }
 
 
 
@@ -123,9 +130,11 @@ export class LoginPage {
   //                 // .then(function (result) {
   //                 //   this.navigate();
   //                 // })
-  //                 .then(()=>{
-  //                   this.navCtrl.setRoot(SignupPage);
+
+  //                 .then(() => {
+  //                   window.localStorage.setItem('signup','false')
   //                 })
+
   //                 .catch(function (error) {
   //                   // User couldn't sign in (bad verification code?)
   //                   // ...
@@ -143,9 +152,9 @@ export class LoginPage {
 
   // }
 
-  // navigate() {
-  //   this.navCtrl.setRoot(SignupPage);
-  // }
+  navigate() {
+    this.navCtrl.setRoot(SignupPage);
+  }
 
   // gpLogin(): void {
 
@@ -168,7 +177,7 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    // this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
     console.log('ionViewDidLoad LoginPage');
   }
 
