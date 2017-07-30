@@ -33,15 +33,15 @@ export class FeedsPage {
   ) {
   }
 
-
-
-  ionViewDidLoad() {
-
-    this.platform.ready()
+  ionViewDidEnter() {
+     this.platform.ready()
     .then(()=>{
       this.loadFeeds();
     });
+  }
 
+
+  ionViewDidLoad() {
     console.log('ionViewDidLoad FeedsPage');
   }
 
