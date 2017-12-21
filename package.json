@@ -39,6 +39,7 @@
         "cordova-plugin-customurlscheme": "^4.3.0",
         "cordova-plugin-device": "^1.1.4",
         "cordova-plugin-facebook4": "^1.9.1",
+        "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-googleplus": "~5.1.1",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-splashscreen": "^4.0.3",
@@ -50,15 +51,16 @@
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
         "ngx-facebook": "latest",
+        "promise": "^8.0.1",
         "rxjs": "5.4.0",
         "sw-toolbox": "3.6.0",
         "zone.js": "0.8.12"
     },
     "devDependencies": {
         "@ionic/app-scripts": "2.0.2",
-        "@ionic/cli-plugin-cordova": "1.5.0",
-        "@ionic/cli-plugin-ionic-angular": "1.4.0",
-        "ionic": "3.6.0",
+        "@ionic/cli-plugin-cordova": "1.6.2",
+        "@ionic/cli-plugin-ionic-angular": "1.4.1",
+        "ionic": "3.7.0",
         "typescript": "2.3.4"
     },
     "description": "fb-auth: An Ionic project",
@@ -87,7 +89,8 @@
             },
             "cordova-plugin-googleplus": {
                 "REVERSED_CLIENT_ID": "394916432162-rgok42ac5m4ddklvhbpt80cs2u6d2i65.apps.googleusercontent.com"
-            }
+            },
+            "cordova-plugin-geolocation": {}
         },
         "platforms": [
             "android",

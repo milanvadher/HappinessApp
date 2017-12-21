@@ -4,6 +4,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import firebase from 'firebase';
 import { Observable } from "rxjs/Observable";
 import { DatabaseProvider } from "../../providers/database/database";
+import {Http, Headers, URLSearchParams} from '@angular/http';
+import 'rxjs/Rx';
+
 // import { ProfileProvider } from '../../providers/profile/profile';
 
 @Component({
@@ -26,7 +29,8 @@ export class UploadPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private camera: Camera,
-    private DB: DatabaseProvider
+    private DB: DatabaseProvider,
+    public http: Http
     // public profileProvider: ProfileProvider,
   ) {
     //    firebase.auth().onAuthStateChanged( user => {
@@ -62,7 +66,10 @@ export class UploadPage {
   }
 
 
-
+getAddress(){
+    let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + 22.368060 + "," + 70.799651+"&key=AIzaSyAL0nTtl5z-ZjeN-FPDlQWD17VR7poo6U8"; 
+    this.http.get(url).toPromise().then(res => console.log(res));
+  }
 
 
   upload() {
@@ -103,7 +110,7 @@ export class UploadPage {
         var data = item.val();
         data.feed = user.downloadURL;
         data.summary = this.displaySummary;
-        data.uid = firebase.auth().currentUser.uid;
+        // data.uid = firebase.auth().currentUser.uid;
         firebase.database().ref('moderator/')
           .push(data)
       })

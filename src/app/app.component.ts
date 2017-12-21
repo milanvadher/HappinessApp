@@ -31,25 +31,25 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private afAuth: AngularFireAuth) {
 
-    // if (window.localStorage.getItem('authentication') == 'false') {
-    //   this.rootPage = LoginPage;
-    // }
-    // else if (window.localStorage.getItem('authentication') == 'true')
-    // {
-    //   this.rootPage = SignupPage;
-    // }
-    // else{
-    //   this.rootPage = TabsPage;
-    // }
+    if (window.localStorage.getItem('authentication') == 'false') {
+      this.rootPage = LoginPage;
+    }
+    else if (window.localStorage.getItem('authentication') == 'true')
+    {
+      this.rootPage = SignupPage;
+    }
+    else{
+      this.rootPage = TabsPage;
+    }
     
-this.afAuth.authState.subscribe(auth => {
-     if (!auth) {
-        this.rootPage = LoginPage;
-      }
-      else {
-          this.rootPage = TabsPage;
-        }
-      }
+// this.afAuth.authState.subscribe(auth => {
+//      if (!auth) {
+//         this.rootPage = LoginPage;
+//       }
+//       else {
+//           this.rootPage = TabsPage;
+//         }
+//       }
 
     // if (window.localStorage.getItem('signup') == null) {
     //   window.localStorage.setItem('signup', 'false');
@@ -67,7 +67,7 @@ this.afAuth.authState.subscribe(auth => {
     //     }
     //   }
     // }
-  );
+  // );
 
     platform.ready().then(() => {
 

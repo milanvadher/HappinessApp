@@ -16,7 +16,7 @@ export class LoginPage {
 
   public loading: Loading;
 
-  // public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
+  public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
 
 
   loginData = {
@@ -43,13 +43,13 @@ export class LoginPage {
 
 
 
-    // firebase.auth().onAuthStateChanged(user => {
-    //   if (user) {
-    //     this.userProfile = user;
-    //   } else {
-    //     this.userProfile = null;
-    //   }
-    // });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.userProfile = user;
+      } else {
+        this.userProfile = null;
+      }
+    });
   }
 
   login() {
@@ -108,49 +108,49 @@ export class LoginPage {
 
 
 
-  // signIn(phoneNumber: number) {
+  signIn(phoneNumber: number) {
 
-  //   const appVerifier = this.recaptchaVerifier;
-  //   const phoneNumberString = "+91" + phoneNumber;
+    const appVerifier = this.recaptchaVerifier;
+    const phoneNumberString = "+91" + phoneNumber;
 
-  //   firebase.auth().signInWithPhoneNumber(phoneNumberString, appVerifier)
-  //     .then(confirmationResult => {
-  //       let prompt = this.alertCtrl.create({
-  //         title: 'Enter the Confirmation code',
-  //         inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
-  //         buttons: [
-  //           {
-  //             text: 'Cancel',
-  //             handler: data => { console.log('Cancel clicked'); }
-  //           },
-  //           {
-  //             text: 'Send',
-  //             handler: data => {
-  //               confirmationResult.confirm(data.confirmationCode)
-  //                 // .then(function (result) {
-  //                 //   this.navigate();
-  //                 // })
+    firebase.auth().signInWithPhoneNumber(phoneNumberString, appVerifier)
+      .then(confirmationResult => {
+        let prompt = this.alertCtrl.create({
+          title: 'Enter the Confirmation code',
+          inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
+          buttons: [
+            {
+              text: 'Cancel',
+              handler: data => { console.log('Cancel clicked'); }
+            },
+            {
+              text: 'Send',
+              handler: data => {
+                confirmationResult.confirm(data.confirmationCode)
+                  // .then(function (result) {
+                  //   this.navigate();
+                  // })
 
-  //                 .then(() => {
-  //                   window.localStorage.setItem('signup','false')
-  //                 })
+                  .then(() => {
+                    window.localStorage.setItem('signup','false')
+                  })
 
-  //                 .catch(function (error) {
-  //                   // User couldn't sign in (bad verification code?)
-  //                   // ...
-  //                 });
-  //             }
-  //           }
-  //         ]
-  //       });
-  //       prompt.present();
-  //     })
-  //     .catch(function (error) {
-  //       console.error("SMS not sent", error);
-  //     });
+                  .catch(function (error) {
+                    // User couldn't sign in (bad verification code?)
+                    // ...
+                  });
+              }
+            }
+          ]
+        });
+        prompt.present();
+      })
+      .catch(function (error) {
+        console.error("SMS not sent", error);
+      });
 
 
-  // }
+  }
 
   navigate() {
     this.navCtrl.setRoot(SignupPage);

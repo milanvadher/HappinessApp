@@ -16,7 +16,7 @@ export class DatabaseProvider {
       return new Observable(observer => {
         let feed: any = [];
 
-        firebase.database().ref('publicFeeds/').orderByKey().once('value', (items:any) =>{
+        firebase.database().ref('moderator/').orderByKey().once('value', (items:any) =>{
           observer.next(feed);
           observer.complete();
 
